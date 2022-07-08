@@ -1,9 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { CategoryButtons } from "./CategoryButtons";
+import { GifModal } from "./GifModal";
 
 export const AddCategory = ({
   addCategory,
-  removeCategories,
+  removeCategory,
+  resetCategories,
   categoriesList,
 }) => {
   const [inputValue, setInputValue] = useState("");
@@ -20,12 +23,16 @@ export const AddCategory = ({
 
   const handleResetCategories = () => {
     setInputValue("");
-    removeCategories();
+    resetCategories();
+  };
+
+  const handleRemoveCategory = (index) => {
+    removeCategory(index);
   };
 
   return (
     <form onSubmit={handleSubmit} className="container">
-      <div  className="row justify-content-center">
+      <div className="row justify-content-center">
         <input
           className="col-12 col-sm-6"
           type="search"
@@ -34,19 +41,20 @@ export const AddCategory = ({
           onChange={handleInputChange}
         />
         <div className="col-12 col-sm-3 my-2 row justify-content-evenly">
-          <button className="col btn btn-dark">Search</button>
-          <button className="col btn btn-dark" onClick={handleResetCategories}>
+          <button className="col btn outline-pink">Search</button>
+          <button
+            className="col btn outline-pink"
+            onClick={handleResetCategories}
+          >
             Reset
           </button>
         </div>
       </div>
       <div>
-        {categoriesList.map((category, index) => (
-          <button className="btn btn-outline pe-0" key={index}>
-            {category}
-            <button class="btn btn-close btn-secondary"></button>
-          </button>
-        ))}
+        <CategoryButtons
+          categoriesList={categoriesList}
+          removeCategory={handleRemoveCategory}
+        />
       </div>
     </form>
   );

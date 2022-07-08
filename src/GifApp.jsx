@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { AddCategory, GifGrid } from "./components";
+import { PageHeader } from "./components/PageHeader";
 
 export const GifApp = () => {
   const [categories, setCategories] = useState([]);
@@ -14,19 +15,22 @@ export const GifApp = () => {
     setCategories([]);
   };
 
+  const handleRemove = (index) => {
+    setCategories(categories.filter((e, i) => i !== index));
+  }
+
   return (
     <>
-      <div className="header text-center">
-        <h1 className="fs-1">Gif App</h1>
-        <h2 className="fs-6">All the gifs you want on the same place!</h2>
-      </div>
-      {/* Añadir categoría */}
+    {/* Muestra el header */}
+      <PageHeader />
+      {/* Añade buscador y botones  */}
       <AddCategory
         addCategory={handleSearch}
-        removeCategories={handleReset}
+        resetCategories={handleReset}
         categoriesList={categories}
+        removeCategory={handleRemove}
       />
-      {/* mostrar gifs */}
+      {/* muestra los gifs */}
       {categories.map((category) => (
         <GifGrid key={category} category={category} />
       ))}

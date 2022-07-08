@@ -37,6 +37,14 @@ h1 {
   font-size: 3.5rem;
   font-family: "Press Start 2P", cursive;
   color: white;
+  backdrop-filter: blur;
+  background: linear-gradient(
+    0deg,
+    rgba(126, 13, 178, 0.02) 0%,
+    rgba(9, 9, 140, 0.2) 64%,
+    rgba(2, 15, 52, 0.3) 100%
+  );
+
 }
 
 h2 {
@@ -46,49 +54,93 @@ h2 {
 }
 
 h3 {
-  font-size: 2rem;
-  margin-bottom: 5px;
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: "Press Start 2P", cursive;
+  color: white;
+}
+
+h4 {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
   font-family: "Press Start 2P", cursive;
   color: white;
 }
 
 button {
   margin: 5px 10px;
+  align-content: space-between;
 }
 
-.btn-dark {
+.top-bar{
+  background-color: rgba(0, 0, 0, 0);  
+  position: absolute;  
+  left: 0;  
+  right: 0;  
+  top: 0;  
+  height: 30px;  
+  display: flex;  
+  align-items: flex-end;  
+  box-shadow: 0 0 5px 0 black;  
+  display: inline;  
+} 
+
+.btn {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 2px solid black;
+}
+
+.outline-pink {
+  border-color: #f75bdf !important;
+  color: #f75bdf;
+}
+
+.outline-pink:hover{
   background-color: #f75bdf !important;
+  color: white;
 }
 
-.btn-outline{
-  
+.outline-purple {
+  border-radius: 2rem;
+  border-color: rgba(126, 13, 178, 1) !important;
+  color: purple;
+  min-width: 20%;
+}
+
+.outline-purple:hover{
+  background-color: rgba(126, 13, 178, 1) !important;
+  color: white;
 }
 
 .card-grid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .card {
   align-content: center;
   align-items: center;
-  background-color: rgba(126, 13, 178, 1);
+  background-color: rgba(255, 255, 255, 0.182);
+  backdrop-filter: blur(5px);
   border-radius: 10px;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.03);
-  display: flex;
+  display: block;
   flex-direction: column;
   height: 0%;
   justify-content: center;
   margin-bottom: 20px;
-  margin-right: 20px;
+  margin-right: 5px;
   overflow: hidden;
 }
 
 .card p {
   flex: 1;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-top: 5px;
   padding: 5px 20px 0px 20px;
   text-align: center;
@@ -97,6 +149,9 @@ button {
 
 .card img {
   width: 100%;
+}
+
+.card-img {
   max-height: 250px;
 }
 
@@ -104,5 +159,6 @@ button {
   margin: 5px;
   background-image: url(https://support.kaspersky.com/resources/img/nyan_cat_animation_new.gif);
   background-size: contain;
+  background-position: right;
   background-color: rgba(0, 0, 0, 0);
 }
