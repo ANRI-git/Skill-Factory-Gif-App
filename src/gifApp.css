@@ -155,6 +155,12 @@ button {
   max-height: 250px;
 }
 
+.modal-content {
+  background-color: rgba(178, 84, 202, 0.286);
+  backdrop-filter: blur(5px);
+  color: white;
+}
+
 .header {
   margin: 5px;
   background-image: url(https://support.kaspersky.com/resources/img/nyan_cat_animation_new.gif);

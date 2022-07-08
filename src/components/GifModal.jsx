@@ -10,7 +10,7 @@ export const GifModal = ({ title, url }) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className="outline-pink" variant="primary" onClick={handleShow}>
         Expand
       </Button>
 
@@ -23,11 +23,6 @@ export const GifModal = ({ title, url }) => {
               <img src={url} alt="gif" />
           </div>
         </Modal.Body>
-        <Modal.Footer>
-          <button className="btn outline-purple" onClick={handleClose}>
-            Close
-          </button>
-        </Modal.Footer>
       </Modal>
     </>
   );
