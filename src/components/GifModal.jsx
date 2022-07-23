@@ -27,3 +27,8 @@ export const GifModal = ({ title, url }) => {
     </>
   );
 };
+
+GifModal.defaultProps = {
+  title: 'Gif title',
+  url: '...'
+}

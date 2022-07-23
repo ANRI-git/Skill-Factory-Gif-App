@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { CategoryButtons } from "./CategoryButtons";
-import { GifModal } from "./GifModal";
 
 export const AddCategory = ({
   addCategory,
@@ -17,6 +17,7 @@ export const AddCategory = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (inputValue.trim() < 1) return;
     addCategory(inputValue.trim());
     setInputValue("");
   };
@@ -31,7 +32,7 @@ export const AddCategory = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="container">
+    <form aria-label="form" onSubmit={handleSubmit} className="container">
       <div className="row justify-content-center">
         <input
           className="col-12 col-sm-6"
@@ -43,6 +44,7 @@ export const AddCategory = ({
         <div className="col-12 col-sm-3 my-2 row justify-content-evenly">
           <button className="col btn outline-pink">Search</button>
           <button
+            aria-label="reset"
             className="col btn outline-pink"
             onClick={handleResetCategories}
           >
@@ -58,4 +60,11 @@ export const AddCategory = ({
       </div>
     </form>
   );
+};
+
+AddCategory.propTypes = {
+  addCategory: PropTypes.func.isRequired,
+  removeCategory: PropTypes.func.isRequired,
+  resetCategories: PropTypes.func.isRequired,
+  categoriesList: PropTypes.array.isRequired,
 };

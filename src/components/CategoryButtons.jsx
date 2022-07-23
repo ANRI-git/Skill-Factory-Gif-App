@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export const CategoryButtons = ({ categoriesList, removeCategory }) => {
   return (
@@ -6,7 +7,7 @@ export const CategoryButtons = ({ categoriesList, removeCategory }) => {
       {categoriesList.map((category, index) => (
           <button className="btn outline-purple" key={index}>
             <div className="d-flex align-items-center">
-              <span className="w-100">{category}</span>
+              <span data-testid="category-button" className="w-100">{category}</span>
               <a className="btn-close flex-shrink-1" onClick={() => removeCategory(index)}></a>
             </div>
           </button>
@@ -14,3 +15,8 @@ export const CategoryButtons = ({ categoriesList, removeCategory }) => {
     </>
   );
 };
+
+CategoryButtons.propTypes = {
+  categoriesList: PropTypes.array.isRequired,
+  removeCategory: PropTypes.func.isRequired
+}

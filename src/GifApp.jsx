@@ -7,7 +7,6 @@ export const GifApp = () => {
   const [categories, setCategories] = useState([]);
 
   const handleSearch = (value) => {
-    if (value < 1) return;
     setCategories([value, ...categories]);
   };
 
@@ -27,8 +26,8 @@ export const GifApp = () => {
       <AddCategory
         addCategory={handleSearch}
         resetCategories={handleReset}
-        categoriesList={categories}
         removeCategory={handleRemove}
+        categoriesList={categories}
       />
       {/* muestra los gifs */}
       {categories.map((category) => (
